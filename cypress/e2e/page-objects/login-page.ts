@@ -19,7 +19,7 @@ class LoginPage {
       email: '[data-testid=emailInput] input#email',
       password: '[data-testid=passwordInput] input#password',
       signInButton: 'button#signInButton',
-      forgotPassword: '[data-testid=resetPasswordlink]',
+      forgotPassword: '[data-testid=resetPasswordLink] a',
       showPassword: '[data-testid=showIcon]',
       hidePassword: '[data-testid=hideIcon]',
       pageTitle: 'h1',
@@ -32,6 +32,7 @@ class LoginPage {
   enterEmail(email: string) {
     cy.get(this.elements.email).click();
     cy.get(this.elements.email).type(email);
+    cy.get(this.elements.email).blur();
   }
 
   enterPassword(password: string) {
