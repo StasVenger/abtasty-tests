@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/StasVenger/abtasty-tests/issues"
   },
-  "homepage": "https://github.com/StasVenger/abtasty-tests#readme"
+  "homepage": "https://github.com/StasVenger/abtasty-tests#readme",
+  "devDependencies": {
+    "cypress": "13.7.1"
+  }
 }
