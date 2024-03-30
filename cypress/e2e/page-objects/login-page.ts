@@ -11,14 +11,14 @@ interface LoginPageElements {
   loginErrorMessage: string;
 }
 
-export default class LoginPage {
+class LoginPage {
   elements: LoginPageElements;
 
   constructor() {
     this.elements = {
-      email: '[data-testi=emailInput] input#email',
+      email: '[data-testid=emailInput] input#email',
       password: '[data-testid=passwordInput] input#password',
-      signInButton: '[#signInButton]',
+      signInButton: 'button#signInButton',
       forgotPassword: '[data-testid=resetPasswordlink]',
       showPassword: '[data-testid=showIcon]',
       hidePassword: '[data-testid=hideIcon]',
@@ -29,43 +29,47 @@ export default class LoginPage {
     };
   }
 
-  async enterEmail(email: string) {
+  enterEmail(email: string) {
+    cy.get(this.elements.email).click();
     cy.get(this.elements.email).type(email);
   }
 
-  async enterPassword(password: string) {
+  enterPassword(password: string) {
+    cy.get(this.elements.password).click();
     cy.get(this.elements.password).type(password);
   }
 
-  async clickSignInButton() {
+  clickSignInButton() {
     cy.get(this.elements.signInButton).click();
   }
 
-  async clickForgotPassword() {
+  clickForgotPassword() {
     cy.get(this.elements.forgotPassword).click();
   }
 
-  async clickShowPassword() {
+  clickShowPassword() {
     cy.get(this.elements.showPassword).click();
   }
 
-  async clickHidePassword() {
+  clickHidePassword() {
     cy.get(this.elements.hidePassword).click();
   }
 
-  async getPageTitle(title: string) {
+  checkPageTitle(title: string) {
     cy.get(this.elements.pageTitle).should('have.text', title);
   }
 
-  async clickSSOLoginButton() {
+  clickSSOLoginButton() {
     cy.get(this.elements.ssoLoginButton).click();
   }
 
-  async getEmailErrorMessage(errorMessage: string) {
+  getEmailErrorMessage(errorMessage: string) {
     cy.get(this.elements.emailErrorMessage).should('have.text', errorMessage);
   }
 
-  async getLoginErrorMessage(errorMessage: string) {
+  getLoginErrorMessage(errorMessage: string) {
     cy.get(this.elements.loginErrorMessage).should('have.text', errorMessage);
   }
 }
+
+export const loginPage: LoginPage = new LoginPage();
