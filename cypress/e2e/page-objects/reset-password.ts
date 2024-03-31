@@ -20,7 +20,6 @@ class ResetPassword {
   enterEmail(email: string) {
     cy.get(this.elements.email).click();
     cy.get(this.elements.email).type(email);
-    cy.get(this.elements.email).blur();
   }
 
   clickSendButton() {
