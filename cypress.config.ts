@@ -1,4 +1,5 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from "cypress";
+require('dotenv').config()
 
 module.exports = defineConfig({
   projectId: '',
@@ -12,5 +13,9 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    env: {
+      loginEmail: process.env.LOGIN,
+      loginPassword: process.env.PASSWORD
+    }
   },
 });

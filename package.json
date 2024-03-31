@@ -21,6 +21,7 @@
     "typescript": "^5.4.3"
   },
   "dependencies": {
-    "cypress": "13.7.1"
+    "cypress": "13.7.1",
+    "dotenv": "^16.4.5"
   }
 }
